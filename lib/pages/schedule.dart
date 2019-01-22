@@ -1,3 +1,4 @@
+// Vendor
 import 'package:flutter/material.dart';
 
 class SchedulePage extends StatelessWidget {
@@ -9,6 +10,7 @@ class SchedulePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Schedule'),
         centerTitle: true,
+        primary: true,
       ),
       body: Center(
         child: Text('Schedule'),

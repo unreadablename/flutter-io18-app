@@ -1,3 +1,4 @@
+// Vendor
 import 'package:flutter/material.dart';
 
 class MapPage extends StatelessWidget {
@@ -9,6 +10,7 @@ class MapPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Map'),
         centerTitle: true,
+        primary: true,
       ),
       body: Center(
         child: Text('Map'),

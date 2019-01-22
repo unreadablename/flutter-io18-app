@@ -1,3 +1,4 @@
+// Vendor
 import 'package:flutter/material.dart';
 
 class InfoPage extends StatelessWidget {
@@ -9,6 +10,7 @@ class InfoPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Info'),
         centerTitle: true,
+        primary: true,
       ),
       body: Center(
         child: Text('Info'),
