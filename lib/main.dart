@@ -46,6 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
     Page(title: 'Map'),
   ];
 
+  final _controller = PageController(initialPage: initialPage);
+
   Widget buildNavBar(BuildContext context) {
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
@@ -67,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
       onTap: (int index) {
         setState(() {
           _currentPage = index;
+          _controller.jumpToPage(index);
         });
       },
     );
@@ -78,7 +81,13 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: _pages[_currentPage],
+      body: PageView.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: _controller,
+        itemBuilder: (BuildContext context, int index) {
+          return _pages[index % _pages.length];
+        },
+      ),
       bottomNavigationBar: buildNavBar(context),
     );
   }
