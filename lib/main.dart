@@ -1,4 +1,10 @@
+// Vendor
 import 'package:flutter/material.dart';
+
+// Application
+import 'package:flutter_io18_app/pages/info.dart';
+import 'package:flutter_io18_app/pages/map.dart';
+import 'package:flutter_io18_app/pages/schedule.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,18 +17,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class Page extends StatelessWidget {
-  final String title;
-  Page({Key key, this.title}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(title),
     );
   }
 }
@@ -41,9 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _currentPage = initialPage;
 
   final List<Widget> _pages = <Widget>[
-    Page(title: 'Info'),
-    Page(title: 'Schedule'),
-    Page(title: 'Map'),
+    InfoPage(),
+    SchedulePage(),
+    MapPage(),
   ];
 
   final _controller = PageController(initialPage: initialPage);
@@ -78,9 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: PageView.builder(
         physics: const NeverScrollableScrollPhysics(),
         controller: _controller,
